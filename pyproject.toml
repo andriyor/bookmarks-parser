@@ -5,7 +5,7 @@ description = "netscape bookmarks parser"
 authors = ["Andriy Orehov <andriyorehov@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/andriyor/amalgama-pq"
+homepage = "https://github.com/andriyor/bookmarks-parser"
 
 [tool.poetry.dependencies]
 python = "^3.5"
