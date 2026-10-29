@@ -1,6 +1,5 @@
 # bookmarks-parser
-[![Build Status](https://travis-ci.org/andriyor/bookmarks-parser.svg?branch=master)](https://travis-ci.org/andriyor/bookmarks-parser)
-[![codecov](https://codecov.io/gh/andriyor/bookmarks-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/andriyor/bookmarks-parser)
+[![test](https://github.com/andriyor/bookmarks-parser/actions/workflows/test.yml/badge.svg)](https://github.com/andriyor/bookmarks-parser/actions/workflows/test.yml)
 [![image](https://img.shields.io/pypi/v/bookmarks-parser.svg)](https://pypi.org/project/bookmarks-parser/)
 [![image](https://img.shields.io/pypi/l/bookmarks-parser.svg)](https://pypi.org/project/bookmarks-parser/)
 [![image](https://img.shields.io/pypi/pyversions/bookmarks-parser.svg)](https://pypi.org/project/bookmarks-parser/)
@@ -40,13 +39,13 @@ pprint.pprint(bookmarks)
 + [Chrome](/tests/tests_data/chrome_bookmarks_flat.json)
 
 ## Development
-Install [Poetry](https://poetry.eustace.io/docs/)   
+Install [uv](https://docs.astral.sh/uv/)
 ```
-$ poetry install
+$ uv sync
 ```
 run tests
 ```
-$ poetry run pytest --cov=bookmarks_parser
+$ uv run pytest --cov=bookmarks_parser
 ```
 
 ## License

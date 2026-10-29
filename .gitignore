@@ -4,3 +4,6 @@ bookmarks_parser.egg-info
 /htmlcov/
 /.coverage
 /.pytest_cache/
+/.venv/
+/dist/
+__pycache__/
