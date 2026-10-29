@@ -1,1 +1,1 @@
-from .bookmarks_parser import parse
+from .bookmarks_parser import parse, parse_flat

@@ -13,6 +13,8 @@ $ pip install bookmarks-parser
 ```
 
 ## Usage
+### `parse` Usage
+The function `parse` returns a list of nested dicts representing the directory structure of your bookmarks file. 
 ```python
 import pprint
 import bookmarks_parser
@@ -20,7 +22,22 @@ import bookmarks_parser
 bookmarks = bookmarks_parser.parse("bookmarks.html")
 pprint.pprint(bookmarks)
 ```
-[output example](https://github.com/andriyor/bookmarks-parser/tree/master/tests/tests_data)
+### `parse` Output Examples
++ [Firefox](/tests/tests_data/firefox_bookmarks.json)
++ [Chrome](/tests/tests_data/chrome_bookmarks.json)
+
+### `parse_flat` Usage
+The function `parse_flat` returns all bookmarks in a single, non-nested list.
+```python
+import pprint
+import bookmarks_parser
+
+bookmarks = bookmarks_parser.parse_flat("bookmarks.html")
+pprint.pprint(bookmarks)
+```
+### `parse_flat` Output Examples
++ [Firefox](/tests/tests_data/firefox_bookmarks_flat.json)
++ [Chrome](/tests/tests_data/chrome_bookmarks_flat.json)
 
 ## Development
 Install [Poetry](https://poetry.eustace.io/docs/)   
