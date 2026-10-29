@@ -1,24 +1,28 @@
-[tool.poetry]
+[project]
 name = "bookmarks-parser"
 version = "0.1.3"
 description = "netscape bookmarks parser"
-authors = ["Andriy Orehov <andriyorehov@gmail.com>"]
+authors = [{ name = "Andriy Orehov", email = "andriyorehov@gmail.com" }]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/andriyor/bookmarks-parser"
+requires-python = ">=3.10"
+dependencies = [
+    "beautifulsoup4>=4.5.0",
+    "html5lib>=1.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.5"
-beautifulsoup4 = "^4.5.0"
-html5lib = "^1.0"
+[project.urls]
+Homepage = "https://github.com/andriyor/bookmarks-parser"
 
-[tool.poetry.dev-dependencies]
-pathlib2 = "^2.3"
-pytest = "^4.0"
-codecov = "^2.0"
-pytest-cov = "^2.6"
-scandir = "^1.9"
+[dependency-groups]
+dev = [
+    "pytest>=9.2",
+    "pytest-cov>=7.1",
+]
 
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""
