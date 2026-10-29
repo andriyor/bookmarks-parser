@@ -78,33 +78,13 @@ def parse(file_path):
     bookmarks = process_dir(dls[0], 0)
     return bookmarks
 
+
 def parse_flat(file_path):
-    """Parse bookmarks into a list without nesting. The directory path can be found in 'path'. """
-    bookmarks = parse(file_path=file_path)
-    current_dir = []
-    bookmarks_flat = []
-
-    # define a recursive function which will load bookmarks_flat
-    def recursive_flat_parse(bookmarks, current_dir):
-
-        # the node has children
-        if isinstance(bookmarks, dict) and 'children' in bookmarks:
-            for child in bookmarks['children']:
-                recursive_flat_parse(child, current_dir + [bookmarks.get('title', 'untitled')])
-
-        # the node is a bookmark
-        if isinstance(bookmarks, dict) and 'type' in bookmarks and bookmarks['type'] == 'bookmark':
-            # add a new tag called 'path' which contains the titles from the directory path
-            new_bookmark = {'path':current_dir}
-            new_bookmark.update(bookmarks)
-            bookmarks_flat.append(new_bookmark)
-        
-        # the node is not a node, but a list (outermost element usually)
-        if isinstance(bookmarks, list):
-            for child in bookmarks:
-                recursive_flat_parse(child, current_dir)
-    
-    # actually load bookmarks_flat
-    recursive_flat_parse(bookmarks=bookmarks, current_dir=current_dir)
-
-    return bookmarks_flat
+    """Parse bookmarks into a flat list; folder titles are in 'path'."""
+    def walk(nodes, path):
+        for node in nodes:
+            if node.get('type') == 'bookmark':
+                yield {'path': path, **node}
+            elif 'children' in node:
+                yield from walk(node['children'], path + [node.get('title', 'untitled')])
+    return list(walk(parse(file_path), []))
