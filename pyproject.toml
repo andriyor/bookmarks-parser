@@ -1,6 +1,6 @@
 [project]
 name = "bookmarks-parser"
-version = "0.1.3"
+version = "0.2.0"
 description = "netscape bookmarks parser"
 authors = [{ name = "Andriy Orehov", email = "andriyorehov@gmail.com" }]
 license = "MIT"
